@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 0 0% 100%;
+
+    --card: 222 47% 14%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 222 47% 14%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 24 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 47% 20%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 222 47% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 24 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 47% 25%;
+    --input: 222 47% 20%;
+    --ring: 24 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --glow-primary: 0 0 40px hsl(24 100% 50% / 0.5);
+    --glow-primary-intense: 0 0 60px hsl(24 100% 50% / 0.7), 0 0 100px hsl(24 100% 50% / 0.4);
+    --gradient-primary: linear-gradient(135deg, hsl(24 100% 50%), hsl(24 100% 60%));
+    --gradient-dark: linear-gradient(180deg, hsl(222 47% 11%), hsl(222 47% 8%));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg, hsl(222 47% 11%), hsl(222 47% 6%));
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  
+  .glow-primary-intense {
+    box-shadow: var(--glow-primary-intense);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px hsl(24 100% 50% / 0.6), 0 0 40px hsl(24 100% 50% / 0.4);
+  }
+  
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+}
+
+@layer components {
+  .btn-primary-glow {
+    @apply bg-primary text-primary-foreground font-bold py-4 px-8 rounded-xl transition-all duration-300;
+    box-shadow: var(--glow-primary);
+  }
+  
+  .btn-primary-glow:hover {
+    @apply scale-105;
+    box-shadow: var(--glow-primary-intense);
+  }
+  
+  .btn-primary-glow:active {
+    @apply scale-95;
+  }
+  
+  .card-dark {
+    @apply bg-card border border-border rounded-2xl p-6;
+    backdrop-filter: blur(10px);
+  }
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(24 100% 50% / 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(24 100% 50% / 0.7), 0 0 60px hsl(24 100% 50% / 0.4);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counter-update {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+    text-shadow: 0 0 30px hsl(24 100% 50% / 0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-counter-update {
+  animation: counter-update 0.5s ease-out;
+}
