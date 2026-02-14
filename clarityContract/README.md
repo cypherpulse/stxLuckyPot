@@ -3,6 +3,7 @@
 [![Clarity](https://img.shields.io/badge/Clarity-4.0-blue.svg)](https://clarity-lang.org/)
 [![Stacks](https://img.shields.io/badge/Stacks-2.1+-orange.svg)](https://stacks.co/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Mainnet](https://img.shields.io/badge/Mainnet-Deployed-brightgreen.svg)](https://explorer.hiro.so/txid/SPGDS0Y17973EN5TCHNHGJJ9B31XWQ5YX8A36C9B.stx-lucky-pot)
 
 A simple Clarity smart contract for a "Lucky Pot" on the Stacks blockchain, designed for maximum STX transfer activity. This contract allows users to contribute STX to a communal pot, with the owner having the ability to withdraw the entire balance at any time.
 
@@ -156,6 +157,8 @@ Returns the current STX balance of the contract.
    ```
 
 ### Mainnet Deployment
+
+**Deployed Contract Address:** `SPGDS0Y17973EN5TCHNHGJJ9B31XWQ5YX8A36C9B.stx-lucky-pot`
 
 1. Update `settings/Mainnet.toml` with your mainnet account
 2. Generate and apply deployment for mainnet:
